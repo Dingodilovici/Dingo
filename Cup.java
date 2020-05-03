@@ -1,5 +1,7 @@
 package kitchen;
 public class Cup {
+	 static int min =0;
+	 static int max = 600;
 	private String liquidName;
 	
 	public String getLiquidName() {
@@ -18,18 +20,24 @@ public class Cup {
     public Integer getLiquidVolume(){
     	return liquidVolume;
     }
+    
+    
     public void setLiquidVolume(Integer liquidVolume) {
-    	if(liquidVolume>=0 && liquidVolume<=600) {
-    	this.liquidVolume=liquidVolume;
+    	if(liquidVolume>max) {
+    	this.liquidVolume=max;
+    	}else if(liquidVolume<min) {
+    		this.liquidVolume=min;
     	}else {
-    		System.out.println("Null !!!");
+    		this.liquidVolume=liquidVolume;
     	}
     }
+    
 
     Cup(){}
     public Cup( String liquidName, Integer liquidVolume ){
         this.liquidName = liquidName;
-        this.liquidVolume = liquidVolume;
+        setLiquidVolume(liquidVolume);
+        
     }
     public void printInfo() {
     	System.out.println("CUP:"+liquidName + " :"+liquidVolume);
