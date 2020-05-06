@@ -7,15 +7,16 @@ public class BigCup extends Cup {
 	setLiquidVolume(liquidVolume);
 	setLiquidName(liquidName);
 	}
-	public void setLiquidVolume(Integer liquidVolume) {
-		max=1000;
-		if(liquidVolume>max) {
-	    	super.setLiquidVolume(max);
+	 public void setLiquidVolume(Integer liquidVolume) {
+	    	int min=0;
+	    	int max=1000;
+	    	if(liquidVolume>max) {
+	    		this.liquidVolume=max;
 	    	}else if(liquidVolume<min) {
-	    		super.setLiquidVolume(min);
+	    		this.liquidVolume=min;
 	    	}else {
-	    		super.setLiquidVolume(liquidVolume);
+	    		this.liquidVolume=liquidVolume;
 	    	}
-	}
+	    }
 
 }
